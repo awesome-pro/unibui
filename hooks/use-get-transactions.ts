@@ -1,4 +1,4 @@
-import { Job } from "@/app/(root)/columns";
+import { Job } from "@/app/(root)/admin/columns";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 

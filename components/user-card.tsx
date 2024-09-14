@@ -4,7 +4,7 @@ import React from 'react'
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
 import Link from 'next/link';
 import { Button } from './ui/button';
-import { Job } from '@/app/(root)/columns';
+import { Job } from '@/app/(root)/admin/columns';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 

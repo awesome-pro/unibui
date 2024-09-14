@@ -1,6 +1,6 @@
 import { toast } from "sonner";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Job } from "@/app/(root)/columns";
+import { Job } from "@/app/(root)/admin/columns";
 
 
 type RequestType = Job;

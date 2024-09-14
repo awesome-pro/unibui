@@ -3,8 +3,8 @@
 import { toast } from 'sonner';
 import React, { useEffect, useState } from 'react';
 import { useMountedState } from 'react-use';
-import NewTransactionSheet from '@/app/(root)/new-transaction-sheet';
-import EditTransactionSheet from '@/app/(root)/edit-transaction-sheet';
+import NewTransactionSheet from '@/app/(root)/admin/new-transaction-sheet';
+import EditTransactionSheet from '@/app/(root)/admin/edit-transaction-sheet';
 
 function SheetProvider() {
     const isMounted = useMountedState();

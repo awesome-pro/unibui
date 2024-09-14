@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect } from 'react'
-import { Job } from '../columns';
+import { Job } from '../admin/columns';
 import JobCard from '@/components/user-card';
 
 function User() {

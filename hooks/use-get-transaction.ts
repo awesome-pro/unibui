@@ -1,4 +1,4 @@
-import { Job } from "@/app/(root)/columns";
+import { Job } from "@/app/(root)/admin/columns";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { toast } from "sonner";
