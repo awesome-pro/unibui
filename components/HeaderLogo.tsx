@@ -7,9 +7,9 @@ function HeaderLogo() {
     <Link href={'/'}>
         <div className='items-center hidden  lg:flex'>
             <Image
-            src={'/complete-logo.svg'}
+            src={'/logo.png'}
             alt='logo'
-            width={100}
+            width={130}
             height={100}
             />
             

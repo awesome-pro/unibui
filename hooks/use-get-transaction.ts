@@ -15,7 +15,7 @@ export const useGetTransaction = (id?: string) => {
                 const job = jobs.find((job) => job.id === id);
     
                 if (!job) {
-                    toast.error("Job not found");
+                    toast.error(`Job with id ${id} not found`);
                     return;
                 }
     

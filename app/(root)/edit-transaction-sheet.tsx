@@ -64,6 +64,9 @@ function EditTransactionSheet() {
     });
   };
 
+  const loading = transactionQuery.isLoading || transactionQuery.isPending;
+  const disabled = loading || editMutation.isPending || deleteMutation.isPending || !transactionQuery.data || !transactionQuery.data.id;
+
   const onDelete = async () => {
     const ok = await confirm();
     if (ok) {
@@ -108,22 +111,30 @@ function EditTransactionSheet() {
     <>
       <ConfirmDialog />
       <Sheet open={isOpen} onOpenChange={onClose}>
-        <SheetContent className='bg-white'>
+        <SheetContent className='bg-white w-[500px]'>
           <SheetHeader>
-            <SheetTitle>Edit Transaction</SheetTitle>
+            <SheetTitle>Edit Job</SheetTitle>
             <SheetDescription>
-              Edit an existing transaction
+              Edit an existing job
             </SheetDescription>
           </SheetHeader>
-          {
-              <TransactionForm
-               id={id}
-               onSubmit={onSubmit}
-               defaultValues={defaultValues}
-               disabled={false}
-               onDelete={onDelete}
-              />
-          }
+              {loading ? (
+                <div className='flex flex-col w-full p-4 gap-3'>
+                  <Skeleton className='h-8 w-1/2'/>
+                  <Skeleton className='h-8 w-full'/>
+                  <Skeleton className='h-8 w-full'/>
+                  <Skeleton className='h-8 w-full'/>
+                </div>
+              ) : (
+                <TransactionForm
+                id={id}
+                onSubmit={onSubmit}
+                defaultValues={defaultValues}
+                disabled={disabled}
+                onDelete={onDelete}
+                />
+            
+              )}
         </SheetContent>
       </Sheet>
     </>

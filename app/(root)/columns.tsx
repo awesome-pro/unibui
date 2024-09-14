@@ -42,6 +42,28 @@ export const columns: ColumnDef<Job>[] = [
     enableHiding: false,
   },
   {
+    accessorKey: "id",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Job ID
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+    cell: ({row}) => {
+      const id = row.getValue("id") as string
+      return(
+        <span>
+          {id}
+        </span>
+      )
+    }
+  },
+  {
     accessorKey: "title",
     header: ({ column }) => {
       return (

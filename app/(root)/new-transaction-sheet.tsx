@@ -51,12 +51,12 @@ function NewTransactionSheet() {
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
         
-        <SheetContent className='bg-white '>
+        <SheetContent className='bg-white w-[500px]'>
             <SheetHeader>
-            <SheetTitle>New Transaction</SheetTitle>
-            <SheetDescription>
-                Add a new Transaction
-            </SheetDescription>
+              <SheetTitle>New Transaction</SheetTitle>
+              <SheetDescription>
+                  Add a new Transaction
+              </SheetDescription>
             </SheetHeader>
             {isLoading ? (
                 <div className='absolute inset-0 flex items-center justify-center'>
@@ -68,6 +68,7 @@ function NewTransactionSheet() {
                disabled={isLoading}
               />
             )}
+
             
         </SheetContent>
     </Sheet>

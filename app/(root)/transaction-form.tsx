@@ -1,15 +1,15 @@
+"use client";
+
 import React from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import DatePicker from '@/components/date-picker'
 import { Textarea } from '@/components/ui/textarea'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
 import { Trash } from 'lucide-react'
-import { toast } from 'sonner'
-import Select from '@/components/select'
+
 
 export const formSchema = z.object({
     id: z.string(),
@@ -68,13 +68,13 @@ function TransactionForm(
                 control={form.control}
                 render={({field}) => (
                     <FormItem>
+                        <FormLabel>
+                            ID
+                        </FormLabel>
                         <FormControl>
-                            <FormLabel>
-                                ID
-                            </FormLabel>
                             <Input  
-                                disabled={disabled}
-                                placeholder='Add a Title'
+                                disabled={true}
+                                placeholder='Add a ID'
                                 {...field}
                             />
                         </FormControl>
@@ -86,10 +86,11 @@ function TransactionForm(
                 control={form.control}
                 render={({field}) => (
                     <FormItem>
+                        <FormLabel>
+                            Job Title
+                        </FormLabel>
                         <FormControl>
-                            <FormLabel>
-                                Title
-                            </FormLabel>
+    
                             <Input  
                                 disabled={disabled}
                                 placeholder='Add a Title'
@@ -174,7 +175,7 @@ function TransactionForm(
                 />
 
                 <Button 
-                className='w-full bg-blue-600 text-white hover:bg-blue-700' 
+                className='w-full text-white' 
                 disabled={disabled}
                 type='submit'
                 onClick={form.handleSubmit(handleSubmit)}

@@ -2,7 +2,6 @@
 
 import { toast } from 'sonner';
 import React, { useEffect, useState } from 'react';
-
 import { useMountedState } from 'react-use';
 import NewTransactionSheet from '@/app/(root)/new-transaction-sheet';
 import EditTransactionSheet from '@/app/(root)/edit-transaction-sheet';
@@ -22,6 +21,9 @@ function SheetProvider() {
             </div>
         );
     }
+
+    //console.log("Component is mounted");
+    //toast.info("Component is mounted");
 
     return (
         <>

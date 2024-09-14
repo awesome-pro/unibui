@@ -31,8 +31,7 @@ export const useBulkDeleteJobs = () => {
         onSuccess: () => {
             toast.success("transaction deleted successfully");
             console.log("transaction deleted successfully");
-            queryClient.invalidateQueries({ queryKey: ["transactions"]});
-            queryClient.invalidateQueries({ queryKey: ["summary"]});
+            queryClient.invalidateQueries({ queryKey: ["jobs"]});
         },
         onError: (error) => {
             toast.error(error.message + "Failed to create transaction");

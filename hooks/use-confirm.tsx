@@ -37,7 +37,7 @@ import {
 
     const ConfirmationDialog = () => (
         <Dialog open={promise !== null} onOpenChange={handleClose}>
-            <DialogContent>
+            <DialogContent className="bg-white text-black">
                 <DialogHeader>
                     <DialogTitle>
                         {title}
@@ -58,6 +58,7 @@ import {
                     <Button
                     onClick={handleConfirm}
                     size={'sm'}
+                    variant={'destructive'}
                     >
                         Confirm
                     </Button>

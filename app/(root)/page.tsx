@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { columns, Job } from './columns';
 import { DataTable } from '@/components/data-table';
 import {
@@ -90,6 +90,16 @@ function TransactionPage() {
         }
       });
     };
+
+
+    useEffect(() => {
+      transactionsQuery.refetch();
+    }, [
+      transactionsQuery.refetch,
+      deletetransactions.mutate,
+      bulkCreateTransactions.mutate,
+      transactionsQuery.data
+    ]);
 
     if (transactionsQuery.isLoading || transactionsQuery.isPending) {
       return (
@@ -181,7 +191,7 @@ function TransactionPage() {
               <DataTable
                 columns={columns}
                 data={transactions}
-                filterKey='payee'
+                filterKey='title'
                 onDelete={(row) => {
                   const ids = row.map((r) => r.original.id);
                   deletetransactions.mutate({ ids });

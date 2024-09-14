@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button';
 import { Delete, Edit, MoreHorizontal, Trash } from 'lucide-react';
 import { useConfirm } from '@/hooks/use-confirm';
 import { toast } from 'sonner';
+import { useDeleteTransaction } from '@/hooks/use-delete-transaction';
 
 type Props = {
     id: string;
@@ -23,8 +24,8 @@ type Props = {
 
 
 function Actions({ id }: Props) {
-    const { onOpen, jobs } = useOpenTransaction();
-    //const deleteMutation = useDeleteTransaction(id);
+    const { onOpen} = useOpenTransaction();
+    const deleteMutation = useDeleteTransaction(id);
     const [ConfirmationDialog, confirm] = useConfirm(
         "Are You Confirmed ?",
         "You are about to DELETE this transaction"
@@ -34,7 +35,7 @@ function Actions({ id }: Props) {
         const ok = await confirm();
 
         if(ok){
-            //deleteMutation.mutate()
+            deleteMutation.mutate()
             toast.success("Transaction deleted successfully")
         }
     }
