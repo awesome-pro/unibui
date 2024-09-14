@@ -73,7 +73,7 @@ function TransactionForm(
                         </FormLabel>
                         <FormControl>
                             <Input  
-                                disabled={true}
+                                disabled={id ? true : disabled}
                                 placeholder='Add a ID'
                                 {...field}
                             />

@@ -9,6 +9,15 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Plus } from 'lucide-react';
@@ -34,9 +43,19 @@ const INITIAL_IMPORT_RESULTS = {
   meta: {}
 };
 
+const filterKeyList = [
+  "id",
+  "title",
+  "company",
+  "location",
+  "description",
+  "requirements",
+]
+
 function TransactionPage() {
   const [variant, setVariant] = useState<VARIANTS>(VARIANTS.LIST);
   const [importResults, setImportResults] = useState(INITIAL_IMPORT_RESULTS)
+  const [filterKey, setFilterKey] = useState<string>('title');
 
   const { toast } = useToast();
 
@@ -94,12 +113,7 @@ function TransactionPage() {
 
     useEffect(() => {
       transactionsQuery.refetch();
-    }, [
-      transactionsQuery.refetch,
-      deletetransactions.mutate,
-      bulkCreateTransactions.mutate,
-      transactionsQuery.data
-    ]);
+    }, [transactionsQuery.refetch, deletetransactions.mutate, bulkCreateTransactions.mutate, transactionsQuery.data, transactionsQuery]);
 
     if (transactionsQuery.isLoading || transactionsQuery.isPending) {
       return (
@@ -187,11 +201,28 @@ function TransactionPage() {
             <p>
               {transactions.length} transactions
             </p>
+
+            
+            <Select onValueChange={(value) => setFilterKey(value)} >
+              <SelectTrigger className="w-[180px] mt-5 -mb-10">
+                <SelectValue placeholder="Filter Key" />
+              </SelectTrigger>
+              <SelectContent>
+                {filterKeyList.map((key) => (
+                  <SelectItem value={key} key={key}>
+                    {key}
+                  </SelectItem>
+                  ))}
+              </SelectContent>
+            </Select>
+
+
+           
             <div className="container mx-0 py-10">
               <DataTable
                 columns={columns}
                 data={transactions}
-                filterKey='title'
+                filterKey={filterKey}
                 onDelete={(row) => {
                   const ids = row.map((r) => r.original.id);
                   deletetransactions.mutate({ ids });

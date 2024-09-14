@@ -31,7 +31,7 @@ function User() {
             <h1 className='text-4xl lg:ml-[210px] font-bold mt-8 text-primary/90 '>Find your Dream Job</h1>
             <h5 className='lg:ml-[210px] font-medium '>in your local place</h5>
         </span>
-        <section className='mt-8 items-center w-full lg:ml-[200px] gap-y-2'>
+        <section className='mt-8 items-center lg:ml-[200px] gap-y-2'>
            {jobs.map((job) => (
              <JobCard
                 key={job.id}
