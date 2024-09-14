@@ -32,6 +32,21 @@ function User() {
             <h5 className='lg:ml-[210px] font-medium '>in your local place</h5>
         </span>
         <section className='mt-8 items-center lg:ml-[200px] gap-y-2'>
+            {jobs.length === 0 ? (
+                <p className='text-center'>Add jobs from Admin Section to see here</p>
+            ) : (
+                jobs.map((job) => (
+                    <JobCard
+                        key={job.id}
+                        id={job.id}
+                        title={job.title}
+                        company={job.company}
+                        location={job.location!!}
+                        description={job.description!!}
+                        requirements={job.requirements!!}
+                    />
+                ))
+            )}
            {jobs.map((job) => (
              <JobCard
                 key={job.id}
