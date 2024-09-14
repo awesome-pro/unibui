@@ -14,13 +14,13 @@ function Detail(
     const [isSaved, setIsSaved] = useState(false);
     const [isApplied, setIsApplied] = useState(false);
 
-    const fetchJob = async() => {
-        const jobs = JSON.parse(localStorage.getItem("jobs") || "[]") as Job[];
-        const job = jobs.find((job) => job.id === params.id);
-        setJob(job || null);
-    }
-
     useEffect(() => {
+        const fetchJob = async() => {
+            const jobs = JSON.parse(localStorage.getItem("jobs") || "[]") as Job[];
+            const job = jobs.find((job) => job.id === params.id);
+            setJob(job || null);
+        }
+    
         fetchJob();
     }, [params.id]);
 
