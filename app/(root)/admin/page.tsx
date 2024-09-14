@@ -6,6 +6,7 @@ import { DataTable } from '@/components/data-table';
 import {
     Card,
     CardContent,
+    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
@@ -31,6 +32,7 @@ import { toast as sonner } from 'sonner';
 import { useBulkCreateTransactions } from '@/hooks/use-bulk-create-transactions';
 import { useToast } from '@/components/ui/use-toast';
 import { useBulkDeleteJobs } from '@/hooks/use-bulk-delete-transactions';
+import Link from 'next/link';
 
 enum VARIANTS {
   LIST = "LIST",
@@ -164,6 +166,9 @@ function TransactionPage() {
                 <ArrowRight className='text-primary -rotate-45'/>
               </div>
             </CardContent>
+            <CardFooter> 
+              <Link href='https://github.com/awesome-pro/unibui/blob/main/jobs.csv' target='_blank' className='ml-6 text-lg text-primary hover:text-primary/60'>Get Correct CSV Format Here</Link>
+            </CardFooter>
           </Card>
         </div>
       );
