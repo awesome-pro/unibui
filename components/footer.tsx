@@ -33,7 +33,7 @@ const footerLinks = [
 ]
 function Footer() {
   return (
-    <footer className="text-gray-800 bg-gray-100 py-4">
+    <footer className="text-gray-800 bg-primary/20 py-4">
       <div className='flex flex-col lg:flex-row items-center justify-center lg:gap-10 bg-white/20 p'>
           {footerLinks.map((link, index) => (
             <Link key={index} href={
@@ -46,10 +46,10 @@ function Footer() {
           ))}
       </div>
           <Separator className='w-full'/>
-      <div className="flex items-center justify-center gap-5 py-5">
-        <Image src="/logo.svg" alt="logo" width={20} height={20} />
-          <p className='text-xl font-serif m-0 -ml-4'>
-            SBI
+      <div className="flex items-baseline justify-center gap-5 py-5">
+        <Image src="/logo.png" alt="logo" width={80} height={20} />
+          <p className='text-xl font-serif m-0 -ml-2'>
+            Inc.
           </p>
         <p>&copy; 2024 All rights reserved</p>
       </div>
