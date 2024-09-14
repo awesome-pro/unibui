@@ -4,7 +4,7 @@ import React from 'react'
 
 function HeaderLogo() {
   return (
-    <Link href={'/'}>
+    <Link href={'/'} className='backdrop-blur-md'>
         <div className='items-center hidden  lg:flex'>
             <Image
             src={'/logo.png'}

@@ -11,26 +11,16 @@ import { CardHeader, CardTitle, Card } from './ui/card'
 import Image from 'next/image'
 
 const routes = [
+
   {
-    href: '/',
-    label: "Overview"
+    href: '/jobs',
+    label: "Jobs"
   },
   {
-    href: '/transactions',
-    label: "Transactions"
+    href: '/admin',
+    label: "Admin"
   },
-  {
-    href: '/accounts',
-    label: "Accounts"
-  },
-  {
-    href: '/categories',
-    label: "Categories"
-  },
-  {
-    href: '/settings',
-    label: "Settings"
-  }
+
 ]
 
 
